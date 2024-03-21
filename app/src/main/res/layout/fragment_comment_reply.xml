@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.main.fragments.CommentReplyFragment"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView15"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profilepic"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/et_box"
+            android:ems="10"
+            android:hint="Add a reply..."
+            android:inputType="textMultiLine"
+            android:maxHeight="100dp"
+            android:minHeight="50dp"
+            android:paddingStart="4dp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView28"
+            app:layout_constraintStart_toEndOf="@+id/imageView15" />
+
+        <ImageView
+            android:id="@+id/imageView28"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/send_24px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurfaceVariant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCommentReplyPic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:srcCompat="@drawable/profilepic" />
+
+        <TextView
+            android:id="@+id/tvCommentReplyUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="\@user44"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ivCommentReplyPic"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <io.github.glailton.expandabletextview.ExpandableTextView
+            android:id="@+id/tvCommentReplyText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="Hello World Test Comment Hello World Test Comment Hello World Test Comment Hello World Test Comment "
+            android:lineSpacingExtra="1.5dp"
+            app:animDuration="500"
+            app:collapsedLines="2"
+            app:ellipsizeTextColor="?attr/colorPrimary"
+            app:expandType="layout"
+            app:readLessText="Show less"
+            app:readMoreText="Show more"
+            app:layout_constraintEnd_toStartOf="@+id/ivCommentReplyOptions"
+            app:layout_constraintStart_toStartOf="@+id/tvCommentReplyUsername"
+            app:layout_constraintTop_toBottomOf="@+id/tvCommentReplyUsername" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/avCommentReplyLike"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintStart_toStartOf="@+id/tvCommentReplyText"
+            app:layout_constraintTop_toBottomOf="@+id/tvCommentReplyText"
+            app:lottie_autoPlay="false"
+            app:lottie_rawRes="@raw/fav_animation" />
+
+        <ImageView
+            android:id="@+id/ivCommentReplyInstantReply"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="64dp"
+            app:layout_constraintBottom_toBottomOf="@+id/avCommentReplyLike"
+            app:layout_constraintStart_toEndOf="@+id/tvCommentReplyLikeCount"
+            app:layout_constraintTop_toTopOf="@id/avCommentReplyLike"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/comment_200_24px" />
+
+        <ImageView
+            android:id="@+id/ivCommentReplyOptions"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/more_horiz_24px" />
+
+        <TextView
+            android:id="@+id/tvCommentReplyLikeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="100"
+            app:layout_constraintBottom_toBottomOf="@+id/avCommentReplyLike"
+            app:layout_constraintStart_toEndOf="@+id/avCommentReplyLike"
+            app:layout_constraintTop_toTopOf="@+id/avCommentReplyLike" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCommentReply"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

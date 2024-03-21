@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_nav"
+    app:startDestination="@id/registerEmailFragment">
+    <fragment
+        android:id="@+id/registerBirthdayFragment"
+        android:name="com.example.socialmediaapp.ui.register.fragments.RegisterBirthdayFragment"
+        android:label=""
+        tools:layout="@layout/fragment_register_birthday" >
+        <action
+            android:id="@+id/action_registerBirthdayFragment_to_registerNameFragment"
+            app:destination="@id/registerNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerEmailFragment"
+        android:name="com.example.socialmediaapp.ui.register.fragments.RegisterEmailFragment"
+        android:label=""
+        tools:layout="@layout/fragment_register_email" >
+        <action
+            android:id="@+id/action_registerEmailFragment_to_registerBirthdayFragment"
+            app:destination="@id/registerBirthdayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerNameFragment"
+        android:name="com.example.socialmediaapp.ui.register.fragments.RegisterNameFragment"
+        android:label=""
+        tools:layout="@layout/fragment_register_name" />
+    <fragment
+        android:id="@+id/registerPasswordFragment"
+        android:name="com.example.socialmediaapp.ui.register.fragments.RegisterPasswordFragment"
+        android:label=""
+        tools:layout="@layout/fragment_register_password" />
+</navigation>

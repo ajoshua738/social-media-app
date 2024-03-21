@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">VibeRealm</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register_email_title">What\'s your email?</string>
+    <string name="register_email_desc">Enter the email where you can be contacted</string>
+    <string name="register_email_error">Please enter a valid email</string>
+    <string name="email_exists">Email already exists!</string>
+    <string name="password_incorrect">Incorrect password</string>
+    <string name="btn_next">Next</string>
+    <string name="register_password_title">Create a password</string>
+    <string name="register_password_error">Please enter a valid password</string>
+    <string name="register_password_desc">Create a password with at least 6 letters or numbers</string>
+    <string name="register_birthday_title">What\'s your birthday?</string>
+    <string name="register_birthday_desc">Choose your date of birth</string>
+    <string name="register_birthday_error">Please enter a valid date of birth</string>
+    <string name="register_name_title">What\'s your name?</string>
+    <string name="register_name_desc">Enter the name you want to use</string>
+    <string name="register_firstName_error">Please enter a valid first name</string>
+    <string name="register_lastName_error">Please enter a valid last name</string>
+    <string name="gender_error">Please select a gender</string>
+
+
+    <string name="dialog_delete_post_title">Delete Post</string>
+    <string name="dialog_delete_post_message">Are you sure you want to delete this post?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <string-array name="gender_options">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="comment_sort_options">
+        <item>Top</item>
+        <item>New</item>
+    </string-array>
+
+    <string name="placeholder_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+</resources>
+
+

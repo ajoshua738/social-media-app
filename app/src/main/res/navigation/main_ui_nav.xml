@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_ui_nav"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.HomePageFragment"
+        android:label=""
+        tools:layout="@layout/fragment_home_page"
+        >
+        <action
+            android:id="@+id/action_homePageFragment_to_commentSectionFragment"
+            app:destination="@id/commentSectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/friendListFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.FriendListFragment"
+        android:label="fragment_friend_list"
+        tools:layout="@layout/fragment_friend_list" />
+    <fragment
+        android:id="@+id/createPostFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.CreatePostFragment"
+        android:label="Create Post"
+        tools:layout="@layout/fragment_create_post" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.socialmediaapp.ui.main.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_viewPostFragment"
+            app:destination="@id/viewPostFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.socialmediaapp.ui.main.profile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/completeProfileFragment"
+        android:name="com.example.socialmediaapp.ui.main.profile.CompleteProfileFragment"
+        android:label="fragment_complete_profile"
+        tools:layout="@layout/fragment_complete_profile" >
+        <action
+            android:id="@+id/action_completeProfileFragment_to_completeProfileFragment_1"
+            app:destination="@id/completeProfileFragment_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/completeProfileFragment_1"
+        android:name="com.example.socialmediaapp.ui.main.profile.CompleteProfileFragment_1"
+        android:label="fragment_complete_profile_1"
+        tools:layout="@layout/fragment_complete_profile_1" />
+    <fragment
+        android:id="@+id/viewPostFragment"
+        android:name="com.example.socialmediaapp.ui.main.profile.ViewPostFragment"
+        android:label="Post"
+        tools:layout="@layout/fragment_view_post" >
+        <action
+            android:id="@+id/action_viewPostFragment_to_commentSectionFragment"
+            app:destination="@id/commentSectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/commentSectionFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.CommentSectionFragment"
+        android:label="Comments"
+        tools:layout="@layout/fragment_comment_section" >
+        <action
+            android:id="@+id/action_commentSectionFragment_to_commentReplyFragment"
+            app:destination="@id/commentReplyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentReplyFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.CommentReplyFragment"
+        android:label="Replies"
+        tools:layout="@layout/fragment_comment_reply" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chatFragment_to_chatMessageFragment"
+            app:destination="@id/chatMessageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatMessageFragment"
+        android:name="com.example.socialmediaapp.ui.main.fragments.ChatMessageFragment"
+        android:label="fragment_chat_message"
+        tools:layout="@layout/fragment_chat_message" />
+</navigation>

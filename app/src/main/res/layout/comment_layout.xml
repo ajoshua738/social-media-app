@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView25"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedImageView"
+        app:srcCompat="@drawable/profilepic" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="\@user44"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView25"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <io.github.glailton.expandabletextview.ExpandableTextView
+        android:id="@+id/textView40"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="Hello World Test Comment Hello World Test Comment Hello World Test Comment Hello World Test Comment "
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView27"
+        app:layout_constraintStart_toStartOf="@+id/textView36"
+        app:layout_constraintTop_toBottomOf="@+id/textView36"
+        android:lineSpacingExtra="1.5dp"
+        app:animDuration="500"
+        app:collapsedLines="2"
+        app:ellipsizeTextColor="?attr/colorPrimary"
+        app:expandType="layout"
+        app:readLessText="Show less"
+        app:readMoreText="Show more"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/textView40"
+        app:lottie_autoPlay="false"
+        app:lottie_rawRes="@raw/fav_animation" />
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lottieAnimationView"
+        app:layout_constraintStart_toEndOf="@+id/textView41"
+        app:layout_constraintTop_toTopOf="@+id/lottieAnimationView"
+        app:srcCompat="@drawable/comment_200_24px" />
+
+    <ImageView
+        android:id="@+id/imageView27"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/more_horiz_24px" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="100"
+        app:layout_constraintBottom_toBottomOf="@+id/lottieAnimationView"
+        app:layout_constraintStart_toEndOf="@+id/lottieAnimationView"
+        app:layout_constraintTop_toTopOf="@+id/lottieAnimationView" />
+
+    <TextView
+        android:id="@+id/tvViewCommentReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="20 Replies"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/lottieAnimationView"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

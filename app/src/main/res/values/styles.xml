@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="post_desc">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="post_name">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="post_time">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="regButton">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.LabelLarge</item>
+    </style>
+
+    <style name="regTextInput">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodySmall</item>
+    </style>
+
+    <style name="regTitle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleLarge</item>
+    </style>
+
+
+
+    <style name="settingsOptions">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
+    </style>
+
+    <style name="regTitleSmall">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleSmall</item>
+    </style>
+
+    <style name="regTitleCaption">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleMedium</item>
+    </style>
+
+    <style name="toolbarTitle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="deleteDialogPositive" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorError</item>
+    </style>
+
+    <style name="deleteDialogNegative" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+
+
+    <style name="RectangularButton" parent="Widget.Material3.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Rectangular</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Rectangular" parent="">
+        <item name="cornerSize">0dp</item>
+    </style>
+
+    <style name="minorTitle">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleMedium</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/colorSurfaceVariant</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+
+    <style name="roundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.Material3.Button">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+
+    
+    <style name="toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="colorControlNormal">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="icon" parent="">
+        <item name="colorControlNormal">?attr/colorOnPrimary</item>
+
+    </style>
+</resources>

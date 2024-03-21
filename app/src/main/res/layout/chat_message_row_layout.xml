@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivChatMessagePic"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedImageView"
+        app:srcCompat="@drawable/profilepic" />
+
+    <TextView
+        android:id="@+id/tvChatMessageName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="1"
+        android:text="Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivChatMessagePic"
+        app:layout_constraintEnd_toStartOf="@+id/tvChatMessageTime"
+        app:layout_constraintStart_toEndOf="@+id/ivChatMessagePic"
+        app:layout_constraintTop_toTopOf="@+id/ivChatMessagePic"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <TextView
+        android:id="@+id/tvChatMessageContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="TextView"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivChatMessagePic"
+        app:layout_constraintStart_toEndOf="@+id/ivChatMessagePic"
+        app:layout_constraintTop_toTopOf="@+id/ivChatMessagePic"
+        app:layout_constraintVertical_bias="0.88" />
+
+    <TextView
+        android:id="@+id/tvChatMessageTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="28/01/2024 4:53 PM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
