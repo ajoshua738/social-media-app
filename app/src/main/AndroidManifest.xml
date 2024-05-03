@@ -10,6 +10,7 @@
 
 
     <application
+        android:name=".helper.ApplicationClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -32,11 +33,25 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true"
-          >
+            android:launchMode="singleInstance">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
 
+            </intent-filter>
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+
+<!--                <data android:scheme="https" android:host="viberealm.dynalinks.app" android:pathPrefix="/nothing"/>-->
+                <data android:scheme="https" android:host="ajoshua738.github.io" />
+<!--                <data android:scheme="haico" android:host="merchant"/>-->
             </intent-filter>
         </activity>
 

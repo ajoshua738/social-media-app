@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "905957774632",
+    "project_id": "viberealm-1c2cc",
+    "storage_bucket": "viberealm-1c2cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905957774632:android:a01078cad838c7272e2c1d",
+        "android_client_info": {
+          "package_name": "com.example.socialmediaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZoEO80-wtStbczjSHGkBnVlsMYotUXUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

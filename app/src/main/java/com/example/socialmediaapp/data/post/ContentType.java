@@ -4,5 +4,6 @@ public enum ContentType {
     IMAGE,
     VIDEO,
     IMAGE_D,
-    VIDEO_D
+    VIDEO_D,
+    IMAGE_URL
 }

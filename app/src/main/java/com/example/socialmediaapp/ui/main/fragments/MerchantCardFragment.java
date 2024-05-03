@@ -1,6 +1,7 @@
 package com.example.socialmediaapp.ui.main.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -8,9 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,57 +19,43 @@ import android.view.ViewGroup;
 import com.example.socialmediaapp.R;
 import com.example.socialmediaapp.data.card.Card;
 import com.example.socialmediaapp.data.merchant.Merchant;
-import com.example.socialmediaapp.data.post.ContentType;
-import com.example.socialmediaapp.data.post.HomepageNewPostAdapter;
-import com.example.socialmediaapp.data.post.Post;
-
-import com.example.socialmediaapp.data.post.PostContent;
-import com.example.socialmediaapp.databinding.FragmentHomePageBinding;
+import com.example.socialmediaapp.data.merchant.MerchantCardAdapter;
+import com.example.socialmediaapp.databinding.FragmentMerchantCardBinding;
 import com.example.socialmediaapp.helper.ApplicationClass;
 import com.example.socialmediaapp.helper.BaseActivity;
 import com.example.socialmediaapp.helper.CommonUtil;
 import com.example.socialmediaapp.model.UserProfile;
-import com.example.socialmediaapp.rest.RestDataService;
-import com.example.socialmediaapp.rest.RestUser;
-import com.example.socialmediaapp.rest.RestUserAdapter;
 import com.example.socialmediaapp.services.CallWebServices;
 import com.example.socialmediaapp.services.DataResult;
 import com.example.socialmediaapp.services.QueryService;
 import com.example.socialmediaapp.services.ServiceConstant;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-public class HomePageFragment extends Fragment {
-    FragmentHomePageBinding binding;
-    private List<Post> postList = new ArrayList<>();
+public class MerchantCardFragment extends Fragment {
 
-
-    static HomepageNewPostAdapter homepageNewPostAdapter;
-    RestUserAdapter restUserAdapter;
-
-    SwipeRefreshLayout swipeRefreshLayout;
-
-
-    List<PostContent> postContentList = new ArrayList<>();
-
-
-
-    private static ArrayList<String> allList;
-    private static ArrayList<Merchant> allCardList = new ArrayList<>();
-    private static ArrayList<Merchant> merchantList = new ArrayList<>();
-    private static ArrayList<Card> cardList = new ArrayList<>();
-
-
-
-
+    FragmentMerchantCardBinding binding;
     private static Activity activity;
 
+    private static MerchantCardAdapter merchantCardAdapter;
+    private static RecyclerView allRecyclerView;
 
-    private List<RestUser> userList;
 
-    RestDataService restDataService;
+    private static ArrayList<String> newList;
+    private static ArrayList<String> popularList;
+    private static ArrayList<String> allList;
+
+
+
+    private static ArrayList<Merchant> newCardList = new ArrayList<>();
+    private static ArrayList<Merchant> popularCardList = new ArrayList<>();
+    private static ArrayList<Merchant> allCardList = new ArrayList<>();
+
+
+    private static ArrayList<Merchant> merchantList = new ArrayList<>();
+
+    private static ArrayList<Card> cardList = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,80 +64,23 @@ public class HomePageFragment extends Fragment {
     }
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentHomePageBinding.inflate(inflater,container,false);
+        binding = FragmentMerchantCardBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
-        restDataService = new RestDataService();
+        allRecyclerView = binding.rvMerchantCard;
+        merchantCardAdapter = new MerchantCardAdapter(cardList, activity);
+        allRecyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        allRecyclerView.setAdapter(merchantCardAdapter);
 
 
-
-
-
-        //addData();
-
-        //swipeRefreshLayout = binding.refreshLayout;
-        binding.refreshLayout.setRefreshing(false);
-        binding.refreshLayout.setEnabled(false);
-
-
-        homepageNewPostAdapter = new HomepageNewPostAdapter(cardList, activity);
-        //restUserAdapter = new RestUserAdapter(new ArrayList<>());
-        RecyclerView recyclerView = view.findViewById(R.id.rvHomepagePost);
-        recyclerView.setAdapter(homepageNewPostAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                reqGetCategorizeMerchantHQ();
-            }
-        }, 2000); // Delay for 2 seconds to simulate a network request
-
-//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                postList.clear();
-//                refreshData();
-//            }
-//        });
-
-
-//        if (getArguments() != null) {
-//            Post post = getArguments().getParcelable("post");
-//            // Use 'post' to update your UI or add it to your postList
-//            if (post != null) {
-//                postList.add(0,post);
-//                homepageNewPostAdapter.notifyDataSetChanged();
-//            }
-//        }
-
-
-
-        //fetchData();
 
         reqGetCategorizeMerchantHQ();
         return view;
     }
-    private void fetchData() {
-        restDataService.getUsers(getContext(), new RestDataService.VRLGetUsers() {
-            @Override
-            public void onError(String message) {
-                // Handle error
-            }
 
-            @Override
-            public void onResponse(List<RestUser> users) {
-                // Handle the list of RestUser objects here
-                // For example, you can pass this list to your RecyclerView adapter
-                restUserAdapter.setUsers(users);
-            }
-        });
-    }
 
     public static void reqGetCategorizeMerchantHQ() {
 //        Log.e("xxx", "Calling GetCategorizeMerchantHQ");
@@ -163,14 +91,14 @@ public class HomePageFragment extends Fragment {
         //String strEnData = userProfile.getEmailMobileSocialId() + "|" + userProfile.getPassword() + "|" + userProfile.getGUID();
         String strEnData = userProfile.getEmailMobileSocialId() + "|" + userProfile.getPassword() + "|" + userProfile.getGUID()
                 + "|" + BaseActivity.getPhoneManufacturer();
-        Log.d("EN DATA",""+strEnData);
-        Log.d("User GUID",""+userProfile.getGUID());
+        Log.d("EN DATA MerchantFragment",""+strEnData);
         Bundle b = new Bundle();
         b.putString(ServiceConstant.EN_DATA, strEnData);
         b.putInt(QueryService.COMMAND, QueryService.QUERY_GET_CATEGORIZE_MERCHANT_HQ);
         new CallWebServices(QueryService.QUERY_GET_CATEGORIZE_MERCHANT_HQ, activity, false).execute(b);
 //        mSwipeContainer.setRefreshing(false);
     }
+
 
     public static void processWSData(Bundle resultBundle) {
         int command = resultBundle.getInt(QueryService.COMMAND);
@@ -374,7 +302,7 @@ public class HomePageFragment extends Fragment {
                             cardDataList.get(13), cardDataList.get(14), cardDataList.get(15), cardDataList.get(16), cardDataList.get(17),
                             cardDataList.get(18), cardDataList.get(19), cardDataList.get(20), cardDataList.get(21));
                     cardList.add(card);
-                    homepageNewPostAdapter.notifyDataSetChanged();
+                    merchantCardAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -425,58 +353,6 @@ public class HomePageFragment extends Fragment {
         }
         return merchantList;
     }
-
-
-    public void addData(){
-
-        String dummy = getString(R.string.placeholder_lorem);
-        String onlineVideo = "https://videocdn.cdnpk.net/joy/content/video/free/2019-11/large_preview/190301_1_25_11.mp4";
-        String onlineImage = "https://cdn.pixabay.com/photo/2015/11/16/14/43/cat-1045782_1280.jpg";
-
-
-//        postContentList.add(new PostContent(ContentType.IMAGE_D,"android.resource://" + requireContext().getPackageName() + "/" + R.drawable.cat7));
-//        postContentList.add(new PostContent(ContentType.IMAGE_D,"android.resource://" + requireContext().getPackageName() + "/" + R.drawable.cat8));
-//        postContentList.add(new PostContent(ContentType.IMAGE_D,"android.resource://" + requireContext().getPackageName() + "/" + R.drawable.cat2));
-//        postContentList.add(new PostContent(ContentType.VIDEO_D,"android.resource://" + requireContext().getPackageName() + "/" + R.raw.video1));
-//        postContentList.add(new PostContent(ContentType.VIDEO_D,"android.resource://" + requireContext().getPackageName() + "/" + R.raw.video4));
-          postContentList.add(new PostContent(ContentType.VIDEO,onlineVideo));
-          postContentList.add(new PostContent(ContentType.IMAGE, onlineImage));
-
-
-        // Add new posts with the same post content
-        for (int i = 0; i < 8; i++) {
-            postList.add(new Post("John Doe", dummy, false, false, postContentList));
-        }
-
-
-
-
-    }
-
-
-//    private void refreshData() {
-//        // Simulate a network request to fetch new data
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                // Clear the existing data and add new data
-//                postList.clear();
-//                addData();
-//                // Add more data as needed
-//
-//                // Notify the adapter that the data has changed
-//                homepageNewPostAdapter.notifyDataSetChanged();
-//
-//                // Stop the swipe refresh animation
-//                swipeRefreshLayout.setRefreshing(false);
-//            }
-//        }, 2000); // Delay for 2 seconds to simulate a network request
-//    }
-
-
-
-
-
 
 
 }

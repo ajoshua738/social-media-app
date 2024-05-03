@@ -79,7 +79,7 @@ public class CreatePostFragment extends Fragment {
             }
         });
 
-        postContentViewPagerAdapter = new PostContentViewPagerAdapter(postContentList);
+        //postContentViewPagerAdapter = new PostContentViewPagerAdapter(postContentList);
         vp2SelectedContent.setAdapter(postContentViewPagerAdapter);
 
         return view;

@@ -15,6 +15,13 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://jcenter.bintray.com")
         }
+        maven {
+            url = uri("https://oss.sonatype.org/content/repositories/ksoap2-android-releases/")
+        }
+        maven{
+            url = uri("https://jitpack.io")
+        }
+
     }
 }
 

@@ -11,19 +11,11 @@
         android:layout_height="match_parent"
         android:scaleType="fitCenter"
         android:visibility="gone"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <VideoView
-        android:id="@+id/vvPostContent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="center"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
 
     <androidx.media3.ui.PlayerView
         android:id="@+id/pvPostContent"
